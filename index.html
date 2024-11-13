@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDESHOW</title>
+</head>
+<body>
+    <style>
+    body {
+        background-color: white;
+    }
+
+    
+    .main-container{
+        
+        width: fit-content;
+        height:600px;
+        padding: 50px;
+        padding-top: 40px;
+        margin: 20px auto;
+        
+    }
+
+    .container {
+        width: fit-content;
+        margin: 10px auto;
+        position: relative;
+    }
+
+    .img {
+        height: 400px;
+        width: 700px;
+        display: block;
+        margin: 50px auto;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    .heading-txt{
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+
+    .icon-action {
+        height: 60px;
+        position: absolute;
+        top: 40%;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .icon-left {
+        left: 0;
+    }
+
+    .icon-left:hover {
+        transform: scale(0.8) translateX(-10px);
+    }
+
+    .icon-right {
+        right: 0;
+    }
+
+    .icon-right:hover {
+        transform: scale(0.8) translateX(10px);
+    }
+   
+</style>
+</head>
+
+<body>
+<div class="main-container">
+
+<h1 class="heading-txt"></h1>
+
+<div class="container">
+    <img src="car-1.png" class="img" id="slider">
+    <img src="left-arrow.png" class="icon-action icon-left" onclick="backward()" />
+    <img src="arrow-right.png" class="icon-action icon-right" onclick="forward()" />
+</div>
+</div>
+
+<script>
+    const images = ["car-1.png", "car-2.png", "car-3.png", "car-4.png", "car-5.png","car-6.png"];
+    let index = 0;
+    const slide = document.getElementById('slider');
+
+
+    function forward() {
+        if (index < images.length - 1) {
+            index++;
+        }
+        else {
+            index = 0;
+        }
+
+        slide.src = images[index]
+    }
+
+    function backward() {
+        if (index > 0) {
+            index--;
+        }
+        else {
+            index = images.length - 1;
+        }
+        slide.src = images[index]
+    }
+
+  
+
+</script>
+</body>
+</html>
